@@ -1,0 +1,35 @@
+<html ng-app='mapapp'>
+  <head>
+    <title>Map App!</title>
+  </head>
+  <body>
+    <h1>Map App</h1>
+    <div ng-view></div>
+      <script type="text/javascript" src="lib/bower_components/jquery/dist/jquery.js"></script>
+      <script type="text/javascript" src="lib/bower_components/angular/angular.js"></script>
+      <script type="text/javascript" src="lib/bower_components/angular-route/angular-route.js"></script>
+      <script type="text/javascript" src="client.js"></script>
+      <script type="text/javascript" src="countriesVisitedController.js"></script>
+      <div id="regions_div" style="width: 80%; height: 80%;"></div>
+  </body>
+</html>
+
+
+    <!-- <script type="text/javascript" src="https://www.google.com/jsapi"></script> -->
+    <!-- <script type="text/javascript">
+      google.load("visualization", "1", {packages:["geochart"]});
+      google.setOnLoadCallback(drawRegionsMap);
+
+      function drawRegionsMap() {
+
+        var data = google.visualization.arrayToDataTable(
+          [['Germany'],['USA'],['Finland'],['UAE']]
+        );
+
+        var options = {};
+
+        var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+
+        chart.draw(data, options);
+      }
+    </script> -->
