@@ -25,37 +25,48 @@ app.use(express.static(__dirname + '/public'));
 module.exports = app;
 
 app.post('/countriesVisited', function(request, response) {
-  CountryList.findOne({name: 'jake'}, function(err, result) {
-    var newCountryList = request.body.country;
-    var oldCountries = result.countries.split(',');
-    // console.log("newCountryList: " + newCountryList);
-    // console.log(Array.isArray(oldCountries));
-    oldCountries.push(newCountryList);
-    // console.log(oldCountries);
-    var query = {name: 'jake'};
-    CountryList.update(query, { countries: oldCountries }, null, function(err, result) {
-      if (err) {console.log(err); }
-      // if (result) {console.log(result); }
-    });
+  CountryList.findOne({name: 'tina'}, function(err, result) {
+    var newerCountryList = request.body.country.toLowerCase();
+    // prepare new and old country lists
+    if (!result) {
+      console.log('create');
+      var newCountryList = new CountryList({'name':'tina'}, {'countries': newerCountryList.toLowerCase()});
+      newCountryList.save(function(err, result) {
+        if (err) {console.log(err);}
+        else { console.log(result);}
+        response.send();
+      });
+    } else {
+      var oldCountries = result.countries;
+
+      oldCountries = result.countries.split(',');
+      console.log(oldCountries);
+      
+      if (oldCountries.indexOf(newerCountryList) === -1) {  
+        oldCountries.push(newerCountryList);
+        var query = {name: 'tina'};
+        CountryList.update(query, { countries: oldCountries }, function(err, result) {
+          if (err) {console.log(err); }
+          console.log('updated!!');
+          response.send();
+        });
+      } else {
+        console.log('already here!');
+        oldCountries.splice(oldCountries.indexOf(newerCountryList),1);
+        var query = {name: 'tina'};
+        CountryList.update(query, { countries: oldCountries }, function(err, result) {
+          if (err) {console.log(err); }
+          console.log('updated!!');
+          response.send();
+        });
+      } 
+    } 
   });
 });
 
 app.get('/countriesVisited', function(request, response) {
-  CountryList.findOne({name: 'jake'}, function(err, result) {
-    // console.log('yay!');
+  CountryList.findOne({name: 'tina'}, function(err, result) {
     console.log(result.countries);
     response.send(result.countries);
-
-    // var newCountryList = request.body.country;
-    // var oldCountries = result.countries.split(',');
-    // console.log("newCountryList: " + newCountryList);
-    // console.log(Array.isArray(oldCountries));
-    // oldCountries.push(newCountryList);
-    // console.log(oldCountries);
-    // var query = {name: 'jake'};
-    // CountryList.update(query, { countries: oldCountries }, null, function(err, result) {
-    //   if (err) {console.log(err); }
-    //   if (result) {console.log(result); }
-    // });
   });
 });

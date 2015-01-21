@@ -11,14 +11,7 @@ var CountryList = mongoose.model('Countries', countryListSchema);
 
 module.exports = CountryList;
 
-// var newCountryList = new CountryList({name: 'robert', countries: "['Albania','Armenia','Angola','Antarctica','Argentina','American Samoa']"});
-
-// newCountryList.save(function(err, result) {
-//   if (err) { console.log('error!');}
-//     else { console.log('it worked!!');}
-// });
-
-// var newCountryList = new CountryList({name: 'jake', countries: "Andorra,UAE,Afghanistan"});
+// var newCountryList = new CountryList({name: 'tina', countries: ''});
 
 // newCountryList.save(function(err, result) {
 //   if (err) { console.log('error!');}

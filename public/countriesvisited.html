@@ -3,11 +3,16 @@
     <input type='text' ng-model='country.name'>
     <button>Submit</button>
     <div>
-      {{ country.name }}
+      TIMER:{{ timer }}
+    </div>
+    <div ng-if="(renderData.length)">
+      Total {{ renderData.length-1 }} Countries out of 249 Total
     </div>
   </form>
-
-    <button ng-click='getCountries()'>Get Countries</button>
-  
+    <button ng-click='getCountries()'>Get Countries</button>  
 </div>
-    <!-- <div ng-repeat='country in countries'> -->
+  <div ng-repeat='value in country.test'>
+      {{value.value}}
+  </div>
+</div>
+    

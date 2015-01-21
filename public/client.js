@@ -9,8 +9,4 @@ angular.module('mapapp', [
       templateUrl: '/countriesvisited.html',
       controller: 'countriesVisitedController'
     });
-    // .when('/', {
-    //   templateUrl: '/login.html',
-    //   controller: 'loginController'
-    // });
 });
