@@ -1,15 +1,14 @@
 <div>
   <form name="countryForm" ng-submit='addCountry(country.name)'>
-    <input type='text' ng-model='country.name'>
+    <input type='text' ng-model='country.name' autofocus>
     <button>Submit</button>
     <div>
-      TIMER:{{ timer }}
+      <h1>TIMER:{{ timer }}</h1>
     </div>
     <div ng-if="(renderData.length)">
-      Total {{ renderData.length-1 }} Countries out of 249 Total
+      <h1>Total {{ renderData.length-1 }} Countries out of 249 Total</h1>
     </div>
   </form>
-    <button ng-click='getCountries()'>Get Countries</button>  
 </div>
   <div ng-repeat='value in country.test'>
       {{value.value}}

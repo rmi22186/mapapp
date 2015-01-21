@@ -25,7 +25,7 @@ angular.module('mapapp.countriesVisited', [])
       }
 
       setInterval(function() {
-        if ($scope.timer >= -1 && $scope.timer <=0) {
+        if ($scope.timer >= -2 && $scope.timer <=0) {
           alert('GAME OVER! YOU MISSED A LOT OF COUNTRIES...TRY AGAIN!');
         }
       }, 500);
